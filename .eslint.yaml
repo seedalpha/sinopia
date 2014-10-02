@@ -33,8 +33,8 @@ rules:
   # ain't worth it
   complexity: [0, 10]
 
-  # never saw it, but self is preferred
-  consistent-this: [1, self]
+  # fails on "self = Object.create(...)" in constructors
+  consistent-this: [0, self]
 
   # fails good code
   curly: [0, multi]
@@ -67,11 +67,9 @@ rules:
   # ain't worth it
   max-statements: [0, 10]
 
-  # that one makes sense
-  new-cap: 2
-
   # I'm writing javascript, not some weird reduced version of it
   no-bitwise: 0
+  no-reserved-keys: 0
 
   # not working around IE bugs, sorry
   no-catch-shadow: 0
@@ -217,59 +215,103 @@ rules:
   # fails defensive semicolons
   no-space-before-semi: 0
 
-  new-parens: 1
+  vars-on-top: 0
+  func-names: 0
+
+  # browser-only rule
+  no-undefined: 0
+
+  # we are intentionally reassigning Error in the app
+  no-native-reassign: 0
+
+  # fails multi-line ifs
+  space-in-parens: [0, "never"]
+
+  # constructors and factories should have same interface,
+  # so this doesn't matter
+  new-cap: 0
+
+  # personal preference: one empty newline at the end
+  eol-last: 0
+
+  no-void: 0
+  space-in-brackets: [0, "never"]
+
   no-alert: 1
   no-array-constructor: 1
   no-caller: 1
+  no-catch-shadow: 1
   no-cond-assign: 1
+  no-console: 1
+  no-constant-condition: 1
   no-control-regex: 1
+  no-debugger: 1
   no-delete-var: 1
   no-div-regex: 1
   no-dupe-keys: 1
   no-empty-class: 1
   no-empty-label: 1
   no-eval: 1
+  no-ex-assign: 1
   no-extend-native: 1
+  no-extra-bind: 1
   no-extra-boolean-cast: 1
   no-extra-strict: 1
   no-fallthrough: 1
   no-floating-decimal: 1
   no-func-assign: 1
-  no-global-strict: 1
   no-implied-eval: 1
+  no-inner-declarations: [2, "functions"]
   no-invalid-regexp: 1
   no-iterator: 1
-  no-labels: 1
   no-label-var: 1
+  no-labels: 1
   no-lone-blocks: 1
+  no-lonely-if: 1
   no-loop-func: 1
+  no-mixed-requires: [2, false]
+  no-mixed-spaces-and-tabs: [2, false]
   no-multi-str: 1
-  no-native-reassign: 1
   no-negated-in-lhs: 1
   no-nested-ternary: 1
   no-new: 1
   no-new-func: 1
   no-new-object: 1
+  no-new-require: 1
   no-new-wrappers: 1
   no-obj-calls: 1
-  no-octal: 1
+  no-process-exit: 1
   no-proto: 1
   no-regex-spaces: 1
+  no-restricted-modules: 1
   no-return-assign: 1
   no-script-url: 1
   no-self-compare: 1
   no-shadow: 1
   no-shadow-restricted-names: 1
+  no-space-before-semi: 1
   no-spaced-func: 1
   no-sparse-arrays: 1
   no-sync: 1
+  no-trailing-spaces: 1
   no-undef: 1
   no-undef-init: 1
   no-unreachable: 1
   no-with: 1
-  no-yoda: 1
+  no-wrap-func: 1
+  
+  brace-style: [1, "1tbs"]
+  consistent-return: 1
+  default-case: 1
+  global-strict: [1, "never"]
+  handle-callback-err: 1
+  max-depth: [1, 4]
+  new-parens: 1
   radix: 1
+  space-after-keywords: [1, "always"]
   space-return-throw-case: 1
   use-isnan: 1
   valid-jsdoc: 1
+  valid-typeof: 1
   wrap-regex: 1
+  yoda: [1, "never"]
